@@ -1,0 +1,42 @@
+{
+    "appKeys": {},
+    "capabilities": [
+        ""
+    ],
+    "companyName": "Robinhuett",
+    "longName": "SoliTime",
+    "projectType": "native",
+    "resources": {
+        "media": [
+            {
+                "file": "images/preview.png",
+                "menuIcon": true,
+                "name": "IMAGE_MENU_ICON",
+                "type": "png"
+            },
+            {
+                "characterRegex": "[0-9:. ]",
+                "file": "fonts/segoeui.ttf",
+                "name": "FONT_SEGOEUI_48",
+                "type": "font"
+            },
+            {
+                "characterRegex": "[0-9:. ]",
+                "file": "fonts/Roboto-Regular.ttf",
+                "name": "FONT_ROBOTO_REGULAR_48",
+                "type": "font"
+            }
+        ]
+    },
+    "sdkVersion": "3",
+    "shortName": "SoliTime",
+    "targetPlatforms": [
+        "aplite",
+        "basalt"
+    ],
+    "uuid": "4b16cf9f-54c8-4580-b7bb-562218693c93",
+    "versionLabel": "1.1",
+    "watchapp": {
+        "watchface": true
+    }
+}
