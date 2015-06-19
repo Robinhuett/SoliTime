@@ -224,7 +224,11 @@ void update_hours(struct tm *tick_time) {
 	struct tm time_copy = *tick_time;
 	
 	// Update TextLayer 1
-	strftime(hour_1_buffer, sizeof("00"), "%H", tick_time);
+	if (clock_is_24h_style()) {
+		strftime(hour_1_buffer, sizeof("00"), "%H", tick_time);
+	} else {
+		strftime(hour_1_buffer, sizeof("00"), "%I", tick_time);
+	}
 	text_layer_set_text(s_hour_1_layer, hour_1_buffer);
 	
 	// Update TextLayer 2
@@ -234,7 +238,11 @@ void update_hours(struct tm *tick_time) {
 	else {
 		time_copy.tm_hour = time_copy.tm_hour + 1;
 	}
-	strftime(hour_2_buffer, sizeof("00"), "%H", &time_copy);
+	if (clock_is_24h_style()) {
+		strftime(hour_2_buffer, sizeof("00"), "%H", &time_copy);
+	} else {	
+		strftime(hour_2_buffer, sizeof("00"), "%I", &time_copy);
+	}
 	text_layer_set_text(s_hour_2_layer, hour_2_buffer);
 	
 	// Set position of the TextLayers
