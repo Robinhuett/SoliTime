@@ -32,14 +32,12 @@
 
     <script>
       function saveOptions() {
-        var options = {}
-        //Add all textual values
-        $('textarea, select, [type="hidden"], [type="password"], [type="text"]').each(function(){options[$(this).attr('id')] = $(this).val();})
-        //Add all checkbox type values
-        $('[type="radio"], [type="checkbox"]').each(function(){options[$(this).attr('id')] = $(this).is(':checked');})
+        var vibrateOnBtSelect = document.getElementById("vibrateonbt_select");
+        var options = {
+          "vibrateonbt": vibrateOnBtSelect.options[vibrateOnBtSelect.selectedIndex].value
+        }
         return options;
       }
-      
       
       var submitButton = document.getElementById("save_button");
       submitButton.addEventListener("click",
@@ -48,6 +46,17 @@
           
           var options = saveOptions();
           var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(options));
+          
+          document.location = location;
+        },
+        false
+      );
+      var cancelButton = document.getElementById("cancel_button");
+      cancelButton.addEventListener("click",
+        function() {
+          console.log("Cancel");
+          
+          var location = "pebblejs://close";
           
           document.location = location;
         },
