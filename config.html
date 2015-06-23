@@ -56,12 +56,9 @@
     <script>
       function saveOptions() {
         var vibrateOnBtSelect = document.getElementById("vibrateonbt_select");
-		var showDateSelect = document.getElementById("showdate_select");
-		var bgColorSelect = document.getElementById("bgcolor_select");
+
         var options = {"KEY_VIBRATEONBT": vibrateOnBtSelect.options[vibrateOnBtSelect.selectedIndex].value}
-        /*options.KEY_VIBRATEONBT = vibrateOnBtSelect.options[vibrateOnBtSelect.selectedIndex].value;
-        options.KEY_SHOWDATE = showDateSelect.options[showDateSelect.SelectedIndex].value;
-        options.KEY_BGCOLOR = bgColorSelect.options[bgColorSelect.SelectedIndex].value;*/
+
 
         return options;
       }
