@@ -20,12 +20,21 @@
 			</td>
 		</tr>
 		<tr>
+			<td>Show the current date</td>
+			<td>
+				<select id="showdate_select"  style="display: block; width: 100%;">
+					<option value="off">Off</option>
+					<option value="on">On</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
 			<td colspan="2"><h3><b>Color settings (Pebble Time only)</h3></b></td>
 		</tr>
 		<tr>
 			<td>Background color</td>
 			<td>
-			      <select id="color_select"  style="display: block; width: 100%;">
+			      <select id="bgcolor_select"  style="display: block; width: 100%;">
 					<option value="gray">Gray</option>
 					<option value="blue ">Blue</option>
 					<option value="green">Green</option>
@@ -45,8 +54,12 @@
     <script>
       function saveOptions() {
         var vibrateOnBtSelect = document.getElementById("vibrateonbt_select");
+		var showDateSelect = document.getElementById("showdate_select");
+		var bgColorSelect = document.getElementById("bgcolor_select");
         var options = {
-          "KEY_VIBRATEONBT": vibrateOnBtSelect.options[vibrateOnBtSelect.selectedIndex].value
+          "KEY_VIBRATEONBT": vibrateOnBtSelect.options[vibrateOnBtSelect.selectedIndex].value,
+		  "KEY_SHOWDATE": showDateSelect.options[showDateSelect.SelectedIndex].value,
+		  "KEY_BGCOLOR": bgColorSelect.options[bgColorSelect.SelectedIndex].value
         }
         return options;
       }
