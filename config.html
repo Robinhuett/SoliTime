@@ -6,29 +6,41 @@
   <body>
     <h1>Configure SoliTime</h1>
 
-    <p>Funtionality settings</p>
-    <p>Vibrate on BT connection loss:
-      <select id="vibrateonbt_select">
-        <option value="on">On</option>
-        <option value="off">Off</option>
-      </select>
-    </p>
-
-    <p>Color settings</p>
-    
-    <p>Background color*:
-      <select id="color_select">
-        <option value="gray">Gray</option>
-        <option value="blue ">Blue</option>
-        <option value="green">Green</option>
-        <option value="red">Red</option>
-      </select>
-    </p>
-
-    <p>
-      <button id="save_button">Save</button>
-      <button id="cancel_button">Cancel</button>
-    </p>
+	<table style="width: 100%;">
+		<tr>
+			<td colspan="2"><h3><b>Functionality settings</b></h3></td>
+		</tr>
+		<tr>
+			<td>Vibrate on BT connection loss</td>
+			<td>
+				<select id="vibrateonbt_select"  style="display: block; width: 100%;">
+					<option value="on">On</option>
+					<option value="off">Off</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2"><h3><b>Color settings (Pebble Time only)</h3></b></td>
+		</tr>
+		<tr>
+			<td>Background color</td>
+			<td>
+			      <select id="color_select"  style="display: block; width: 100%;">
+					<option value="gray">Gray</option>
+					<option value="blue ">Blue</option>
+					<option value="green">Green</option>
+					<option value="red">Red</option>
+				</select>	
+			</td>
+		</tr>
+		<tr><td>&nbsp;</td></tr>
+		<tr>
+			<td colspan="2"><button id="save_button" style="display: block; width: 100%;">Save</button></td>
+		</tr>
+		<tr>
+			<td colspan="2"><button id="cancel_button" style="display: block; width: 100%;">Cancel</button></td>
+		</tr>
+	</table>
 
     <script>
       function saveOptions() {
