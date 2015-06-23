@@ -59,7 +59,10 @@
 	var showDateSelect = document.getElementById("showdate_select");
 	var bgColorSelect = document.getElementById("bgcolor_select");
 	
-        var options = {"KEY_VIBRATEONBT": vibrateOnBtSelect.options[vibrateOnBtSelect.selectedIndex].value}
+        var options = {
+        	"KEY_VIBRATEONBT": vibrateOnBtSelect.options[vibrateOnBtSelect.selectedIndex].value,
+        	"KEY_SHOWDATE": showDateSelect.options[showDateSelect.selectedIndex].value
+        }
 
 
         return options;
