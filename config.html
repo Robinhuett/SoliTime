@@ -2,55 +2,34 @@
 <html>
   <head>
     <title>SoliTime</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
   </head>
   <body>
-    <div data-role="page" id="main">
-      <div data-role="header" class="jqm-header">
-        <h1>Configure SoliTime</h1>
-      </div>
+    <h1>Configure SoliTime</h1>
 
-      <div data-role="content">
+    <p>Funtionality settings</p>
+    <p>Vibrate on BT connection loss:
+      <select id="vibrateonbt_select">
+        <option value="on">On</option>
+        <option value="off">Off</option>
+      </select>
+    </p>
 
-        <div data-role="fieldcontain">
-          <label for="vibrateOnBT">Vibrate on BT loss:</label>
-          <select name="vibrateOnBT" id="vibrateOnBT" data-role="slider">
-            <option value="off">Off</option>
-            <option value="on">On</option>
-          </select>
-        </div>
+    <p>Color settings</p>
+    
+    <p>Background color*:
+      <select id="color_select">
+        <option value="gray">Gray</option>
+        <option value="blue ">Blue</option>
+        <option value="green">Green</option>
+        <option value="red">Red</option>
+      </select>
+    </p>
 
-        <div data-role="fieldcontain">
-          <fieldset data-role="controlgroup">
-            <legend>Background color:</legend>
-            <input type="radio" name="radio-color" id="checkbox-color-gray" class="custom" />
-            <label for="checkbox-color-gray">Gray</label>
+    <p>
+      <button id="save_button">Save</button>
+      <button id="cancel_button">Cancel</button>
+    </p>
 
-            <input type="radio" name="radio-color" id="checkbox-color-blue" class="custom" />
-            <label for="checkbox-color-blue">Blue</label>
-
-            <input type="radio" name="radio-color" id="checkbox-color-green" class="custom" />
-            <label for="checkbox-color-green">Green</label>
-
-            <input type="radio" name="radio-color" id="checkbox-color-red" class="custom" />
-            <label for="checkbox-color-red">Red</label>
-            </fieldset>
-          </div>
-        </div>
-
-        <div class="ui-body ui-body-b">
-          <fieldset class="ui-grid-a">
-              <div class="ui-block-a"><button type="submit" data-theme="d" id="b-cancel">Cancel</button></div>
-              <div class="ui-block-b"><button type="submit" data-theme="a" id="b-submit">Submit</button></div>
-            </fieldset>
-          </div>
-        </div>
-      </div>
-    </div>
     <script>
       function saveOptions() {
         var options = {}
@@ -60,25 +39,31 @@
         $('[type="radio"], [type="checkbox"]').each(function(){options[$(this).attr('id')] = $(this).is(':checked');})
         return options;
       }
-      $().ready(function() {
-        $("#b-cancel").click(function() {
-          console.log("Cancel");
-          document.location = "pebblejs://close";
-        });
-        $("#b-submit").click(function() {
+      
+      
+      var submitButton = document.getElementById("save_button");
+      submitButton.addEventListener("click",
+        function() {
           console.log("Submit");
-          var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(saveOptions()));
-          console.log("Warping to: " + location);
-          console.log(location);
+          
+          var options = saveOptions();
+          var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(options));
+          
           document.location = location;
-        });
-        //Set form values to whatever is passed in.
-        var obj = jQuery.parseJSON(decodeURIComponent(window.location.search.substring(1)));
-        for(key in obj) {
-          $("#"+[key]).val(obj[key]);
-          $("#"+[key]).val(obj[key]).slider("refresh");       
-        }
-      });
+        },
+        false
+      );
+      var cancelButton = document.getElementById("cancel_button");
+      submitButton.addEventListener("click",
+        function() {
+          console.log("Cancel");
+          
+          var location = "pebblejs://close";
+          
+          document.location = location;
+        },
+        false
+      );
     </script>
   </body>
 </html>
