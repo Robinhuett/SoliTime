@@ -137,29 +137,29 @@
 			}
 	
 			function fillOptions() {
-				var vibrateOnBtSelect = document.getElementById("vibrateonbt_select");
+				/*var vibrateOnBtSelect = document.getElementById("vibrateonbt_select");
 				var showDateSelect = document.getElementById("showdate_select");
-				var bgColorSelect = document.getElementById("bgcolor_select");
+				var bgColorSelect = document.getElementById("bgcolor_select");*/
 				var boldHourSelect = document.getElementById("boldhour_select");
 				
-				vibrateOnBtSelect.value = getQueryVariable("vibrateonbt_select");
+				/*vibrateOnBtSelect.value = getQueryVariable("vibrateonbt_select");
 				showDateSelect.value = getQueryVariable("showdate_select");
-				bgColorSelect.value = getQueryVariable("bgcolor_select");
+				bgColorSelect.value = getQueryVariable("bgcolor_select");*/
 				boldHourSelect.value = getQueryVariable("boldhour_select");
 			}
 	
 			function saveOptions() {
-				var vibrateOnBtSelect = document.getElementById("vibrateonbt_select");
+				/*var vibrateOnBtSelect = document.getElementById("vibrateonbt_select");
 				var showDateSelect = document.getElementById("showdate_select");
-				var bgColorSelect = document.getElementById("bgcolor_select");
+				var bgColorSelect = document.getElementById("bgcolor_select");*/
 				var boldHourSelect = document.getElementById("boldhour_select");
 	
 					console.log(boldHourSelect.checked);
 		
 				var options = {
-					"KEY_VIBRATEONBT": boldHourSelect.checked,
+					/*"KEY_VIBRATEONBT": boldHourSelect.checked,
 					"KEY_SHOWDATE": boldHourSelect.checked,
-					"KEY_BGCOLOR": bgColorSelect.options[bgColorSelect.selectedIndex].value,
+					"KEY_BGCOLOR": bgColorSelect.options[bgColorSelect.selectedIndex].value,*/
 					"KEY_BOLDHOUR": boldHourSelect.checked
 				}
 	
