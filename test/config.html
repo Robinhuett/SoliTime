@@ -154,10 +154,12 @@
 				var bgColorSelect = document.getElementById("bgcolor_select");
 				var boldHourSelect = document.getElementById("boldhour_select");
 		
+		console.log(bgColorSelect.value);
+		
 				var options = {
 					"KEY_VIBRATEONBT": boldHourSelect.checked,
 					"KEY_SHOWDATE": boldHourSelect.checked,
-					"KEY_BGCOLOR": bgColorSelect.options[bgColorSelect.selectedIndex].value,
+					"KEY_BGCOLOR": bgColorSelect.value,
 					"KEY_BOLDHOUR": boldHourSelect.checked
 				}
 	
