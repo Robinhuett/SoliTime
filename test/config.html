@@ -142,10 +142,10 @@
 				var bgColorSelect = document.getElementById("bgcolor_select");
 				var boldHourSelect = document.getElementById("boldhour_select");
 				
-				vibrateOnBtSelect.checked = getQueryVariable("vibrateonbt_select");
-				showDateSelect.checked = getQueryVariable("showdate_select");
+				vibrateOnBtSelect.checked = (getQueryVariable("vibrateonbt_select") === 'true');
+				showDateSelect.checked = (getQueryVariable("showdate_select") === 'true');
 				bgColorSelect.value = getQueryVariable("bgcolor_select");
-				boldHourSelect.checked = getQueryVariable("boldhour_select");
+				boldHourSelect.checked = (getQueryVariable("boldhour_select") === 'true');
 			}
 	
 			function saveOptions() {
@@ -153,8 +153,6 @@
 				var showDateSelect = document.getElementById("showdate_select");
 				var bgColorSelect = document.getElementById("bgcolor_select");
 				var boldHourSelect = document.getElementById("boldhour_select");
-		
-		console.log(bgColorSelect.value);
 		
 				var options = {
 					"KEY_VIBRATEONBT": vibrateOnBtSelect.checked,
