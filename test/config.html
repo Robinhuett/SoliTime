@@ -13,14 +13,55 @@
 				<div class="item-container-header">Visuals</div>
 				<div class="item-container-content">
 					<label class="item">
-						Example Item
-						<input type="checkbox" class="item-toggle" name="toggle-1" checked>
+						Bold hour
+						<input type="checkbox" class="item-toggle" name="toggle-1" id="boldhour_select">
 					</label>
+				</div>
+			</div>
+			
+			<div class="item-container">
+				<div class="item-container-header">Colors</div>
+				<div class="item-container-content">
+					<label class="item">
+						Primary
+						<input type="text" class="item-color item-color-primary" name="color-1" value="#FF0000">
+					</label>
+					<label class="item">
+						Secondary
+						<input type="text" class="item-color item-color-secondary" name="color-2" value="#FFFFFF">
+					</label>
+					<label class="item">
+						Background
+						<input type="text" class="item-color item-color-background" name="color-3" value="#000000">
+					</label>
+				</div>
+				<div class="item-container-footer">
+					This only affects the Pebble Time.
+				</div>
+			</div>
+			
+			<div class="item-container">
+				<div class="item-container-header">Functionality</div>
+				<div class="item-container-content">
+					<label class="item">
+						Vibrate on BT connection loss
+						<input type="checkbox" class="item-toggle" name="toggle-1">
+					</label>
+					<label class="item">
+						Show the current date
+						<input type="checkbox" class="item-toggle" name="toggle-1">
+					</label>
+				</div>
+			</div>
+			
+			<div class="item-container">
+				<div class="button-container">
+					<input type="button" class="item-button" id="save_button" value="SEND">
 				</div>
 			</div>
 		</form>
 	
-	<h1>Configure SoliTime</h1>
+	<!--<h1>Configure SoliTime</h1>
 
 		<table style="width: 100%;">
 			<tr>
@@ -41,7 +82,7 @@
 			<tr>
 				<td>Background color</td>
 				<td>
-				      <!--<input id="bgcolor_select" style="display: block; width: 100%;" class="form-control" onchange="clickColor(0, -1, -1, 5)" value="#ff0000" type="color">-->
+				      --<input id="bgcolor_select" style="display: block; width: 100%;" class="form-control" onchange="clickColor(0, -1, -1, 5)" value="#ff0000" type="color">
 				
 				    <select id="bgcolor_select"  style="display: block; width: 100%;">
 						<option value="gray">Gray</option>
@@ -79,7 +120,7 @@
 			<tr>
 				<td colspan="2"><button id="cancel_button" style="display: block; width: 100%;">Cancel</button></td>
 			</tr>
-		</table>
+		</table>-->
 	
 		<script type="text/javascript" src="js/slate.js"></script>
 		<script>
@@ -113,11 +154,13 @@
 				var bgColorSelect = document.getElementById("bgcolor_select");
 				var boldHourSelect = document.getElementById("boldhour_select");
 	
+					console.log(boldHourSelect.checked);
+		
 				var options = {
-					"KEY_VIBRATEONBT": vibrateOnBtSelect.options[vibrateOnBtSelect.selectedIndex].value,
-					"KEY_SHOWDATE": showDateSelect.options[showDateSelect.selectedIndex].value,
+					"KEY_VIBRATEONBT": boldHourSelect.checked,
+					"KEY_SHOWDATE": boldHourSelect.checked,
 					"KEY_BGCOLOR": bgColorSelect.options[bgColorSelect.selectedIndex].value,
-					"KEY_BOLDHOUR": boldHourSelect.options[boldHourSelect.selectedIndex].value
+					"KEY_BOLDHOUR": boldHourSelect.checked
 				}
 	
 				return options;
@@ -128,9 +171,9 @@
 				function() {
 					console.log("Submit");
 	
-					var options = saveOptions();
+					var options = saveOptions();					
 					var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(options));
-	          
+			  
 					document.location = location;
 				},
 				false
