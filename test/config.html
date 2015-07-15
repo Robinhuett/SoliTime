@@ -24,15 +24,15 @@
 				<div class="item-container-content">
 					<label class="item">
 						Primary
-						<input type="text" class="item-color item-color-primary" name="color-1" value="#FF0000">
+						<input type="text" class="item-color item-color-normal" name="color-1" value="#FF0000">
 					</label>
 					<label class="item">
 						Secondary
-						<input type="text" class="item-color item-color-secondary" name="color-2" value="#FFFFFF">
+						<input type="text" class="item-color item-color-normal" name="color-2" value="#FFFFFF">
 					</label>
 					<label class="item">
 						Background
-						<input type="text" class="item-color item-color-background" name="color-3" value="#000000">
+						<input type="text" class="item-color item-color-normal" name="color-3" id="bgcolor_select" value="#000000">
 					</label>
 				</div>
 				<div class="item-container-footer">
@@ -45,11 +45,11 @@
 				<div class="item-container-content">
 					<label class="item">
 						Vibrate on BT connection loss
-						<input type="checkbox" class="item-toggle2" name="toggle-1">
+						<input type="checkbox" class="item-toggle" name="toggle-2" id="vibrateonbt_select">
 					</label>
 					<label class="item">
 						Show the current date
-						<input type="checkbox" class="item-toggle3" name="toggle-1">
+						<input type="checkbox" class="item-toggle" name="toggle-3" id="showdate_select">
 					</label>
 				</div>
 			</div>
@@ -137,29 +137,27 @@
 			}
 	
 			function fillOptions() {
-				/*var vibrateOnBtSelect = document.getElementById("vibrateonbt_select");
+				var vibrateOnBtSelect = document.getElementById("vibrateonbt_select");
 				var showDateSelect = document.getElementById("showdate_select");
-				var bgColorSelect = document.getElementById("bgcolor_select");*/
+				var bgColorSelect = document.getElementById("bgcolor_select");
 				var boldHourSelect = document.getElementById("boldhour_select");
 				
-				/*vibrateOnBtSelect.value = getQueryVariable("vibrateonbt_select");
-				showDateSelect.value = getQueryVariable("showdate_select");
-				bgColorSelect.value = getQueryVariable("bgcolor_select");*/
+				vibrateOnBtSelect.checked = getQueryVariable("vibrateonbt_select");
+				showDateSelect.checked = getQueryVariable("showdate_select");
+				bgColorSelect.value = getQueryVariable("bgcolor_select");
 				boldHourSelect.checked = getQueryVariable("boldhour_select");
 			}
 	
 			function saveOptions() {
-				/*var vibrateOnBtSelect = document.getElementById("vibrateonbt_select");
+				var vibrateOnBtSelect = document.getElementById("vibrateonbt_select");
 				var showDateSelect = document.getElementById("showdate_select");
-				var bgColorSelect = document.getElementById("bgcolor_select");*/
+				var bgColorSelect = document.getElementById("bgcolor_select");
 				var boldHourSelect = document.getElementById("boldhour_select");
-	
-					console.log(boldHourSelect.checked);
 		
 				var options = {
-					/*"KEY_VIBRATEONBT": boldHourSelect.checked,
+					"KEY_VIBRATEONBT": boldHourSelect.checked,
 					"KEY_SHOWDATE": boldHourSelect.checked,
-					"KEY_BGCOLOR": bgColorSelect.options[bgColorSelect.selectedIndex].value,*/
+					"KEY_BGCOLOR": bgColorSelect.options[bgColorSelect.selectedIndex].value,
 					"KEY_BOLDHOUR": boldHourSelect.checked
 				}
 	
