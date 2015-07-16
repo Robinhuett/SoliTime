@@ -473,3 +473,6 @@ input[type=date] {
   background-color: #F7F7F7;
   border: 2px solid #EAEAEA;
   border-radius: 2px; }
+
+.item-hidden {
+  display: none; }
