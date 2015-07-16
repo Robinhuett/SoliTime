@@ -1,6 +1,9 @@
 {
     "appKeys": {
-        "KEY_BGCOLOR": 2,
+        "KEY_BACKGROUNDCOLOR": 5,
+        "KEY_BOLDHOUR": 2,
+        "KEY_PRIMARYCOLOR": 3,
+        "KEY_SECONDARYCOLOR": 4,
         "KEY_SHOWDATE": 1,
         "KEY_VIBRATEONBT": 0
     },
@@ -14,13 +17,20 @@
         "media": [
             {
                 "characterRegex": "[0-9:. ]",
+                "file": "fonts/Roboto-Bold.ttf",
+                "name": "FONT_ROBOTO_BOLD_48",
+                "type": "font"
+            },
+            {
+                "characterRegex": "[0-9:. ]",
                 "file": "fonts/Roboto-Regular.ttf",
                 "name": "FONT_ROBOTO_REGULAR_48",
                 "type": "font"
             },
             {
-                "file": "fonts/segoeui.ttf",
-                "name": "FONT_SEGOEUI_24",
+                "characterRegex": "[0-9a-zA-Z!?: ]",
+                "file": "fonts/Roboto-Regular.ttf",
+                "name": "FONT_ROBOTO_REGULAR_24",
                 "type": "font"
             },
             {
@@ -38,7 +48,7 @@
         "basalt"
     ],
     "uuid": "4b16cf9f-54c8-4580-b7bb-562218693c93",
-    "versionLabel": "1.1",
+    "versionLabel": "1.2",
     "watchapp": {
         "watchface": true
     }
