@@ -1,70 +1,68 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0" name="viewport">
+		<link rel="stylesheet" href="css/slate.css">
+		
 		<title>SoliTime</title>
 	</head>
 	<body>
-	<h1>Configure SoliTime</h1>
+		<form id="main-form">
+			<div class="item-container">
+				<div class="item-container-header">Visuals</div>
+				<div class="item-container-content">
+					<label class="item">
+						Bold hour
+						<input type="checkbox" class="item-toggle" name="toggle-1" id="boldhour_select">
+					</label>
+				</div>
+			</div>
+			
+			<div class="item-container">
+				<div class="item-container-header">Colors</div>
+				<div class="item-container-content">
+					<label class="item">
+						Primary
+						<input type="text" class="item-color item-color-normal" name="color-1" id="primarycolor_select">
+					</label>
+					<label class="item">
+						Secondary
+						<input type="text" class="item-color item-color-normal" name="color-2" id="secondarycolor_select">
+					</label>
+					<label class="item">
+						Background
+						<input type="text" class="item-color item-color-normal" name="color-3" id="backgroundcolor_select">
+					</label>
+				</div>
+				<div class="item-container-footer">
+					This only affects the Pebble Time.
+				</div>
+			</div>
+			
+			<div class="item-container">
+				<div class="item-container-header">Functionality</div>
+				<div class="item-container-content">
+					<label class="item">
+						Vibrate on BT connection loss
+						<input type="checkbox" class="item-toggle" name="toggle-2" id="vibrateonbt_select">
+					</label>
+					<label class="item">
+						Show the current date
+						<input type="checkbox" class="item-toggle" name="toggle-3" id="showdate_select">
+					</label>
+				</div>
+			</div>
+			
+			<div class="item-container">
+				<div class="button-container">
+					<input type="button" class="item-button" id="save_button" value="SEND">
+				</div>
+			</div>
+		</form>
 
-		<table style="width: 100%;">
-			<tr>
-				<td colspan="2"><h3><b>Visual Settings</h3></b></td>
-			</tr>
-			<tr>
-				<td>Bold hour</td>
-				<td>
-				    <select id="boldhour_select"  style="display: block; width: 100%;">
-						<option value="off">Off</option>
-						<option value="on">On</option>
-					</select>		
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2"><h3><b>Color settings (Pebble Time only)</h3></b></td>
-			</tr>
-			<tr>
-				<td>Background color</td>
-				<td>
-				      <!--<input id="bgcolor_select" style="display: block; width: 100%;" class="form-control" onchange="clickColor(0, -1, -1, 5)" value="#ff0000" type="color">-->
-				
-				    <select id="bgcolor_select"  style="display: block; width: 100%;">
-						<option value="gray">Gray</option>
-						<option value="blue ">Blue</option>
-						<option value="green">Green</option>
-						<option value="red">Red</option>
-					</select>		
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2"><h3><b>Functionality settings</b></h3></td>
-			</tr>
-			<tr>
-				<td>Vibrate on BT connection loss</td>
-				<td>
-					<select id="vibrateonbt_select"  style="display: block; width: 100%;">
-						<option value="on">On</option>
-						<option value="off">Off</option>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td>Show the current date</td>
-				<td>
-					<select id="showdate_select"  style="display: block; width: 100%;">
-						<option value="off">Off</option>
-						<option value="on">On</option>
-					</select>
-				</td>
-			</tr>
-			<tr><td>&nbsp;</td></tr>
-			<tr>
-				<td colspan="2"><button id="save_button" style="display: block; width: 100%;">Save</button></td>
-			</tr>
-			<tr>
-				<td colspan="2"><button id="cancel_button" style="display: block; width: 100%;">Cancel</button></td>
-			</tr>
-		</table>
 	
+		<script type="text/javascript" src="js/slate.js"></script>
 		<script>
 			function getQueryVariable(variable) 
 			{
@@ -81,26 +79,34 @@
 			function fillOptions() {
 				var vibrateOnBtSelect = document.getElementById("vibrateonbt_select");
 				var showDateSelect = document.getElementById("showdate_select");
-				var bgColorSelect = document.getElementById("bgcolor_select");
 				var boldHourSelect = document.getElementById("boldhour_select");
+				var primaryColorSelect = document.getElementById("primarycolor_select");
+				var secondaryColorSelect = document.getElementById("secondarycolor_select");
+				var backgroundgColorSelect = document.getElementById("backgroundcolor_select");
 				
-				vibrateOnBtSelect.value = getQueryVariable("vibrateonbt_select");
-				showDateSelect.value = getQueryVariable("showdate_select");
-				bgColorSelect.value = getQueryVariable("bgcolor_select");
-				boldHourSelect.value = getQueryVariable("boldhour_select");
+				vibrateOnBtSelect.checked = (getQueryVariable("vibrateonbt_select") === 'true');
+				showDateSelect.checked = (getQueryVariable("showdate_select") === 'true');
+				boldHourSelect.checked = (getQueryVariable("boldhour_select") === 'true');
+				primaryColorSelect.value = getQueryVariable("primarycolor_select");
+				secondaryColorSelect.value = getQueryVariable("secondarycolor_select");
+				backgroundgColorSelect.value = getQueryVariable("backgroundcolor_select");
 			}
 	
 			function saveOptions() {
 				var vibrateOnBtSelect = document.getElementById("vibrateonbt_select");
 				var showDateSelect = document.getElementById("showdate_select");
-				var bgColorSelect = document.getElementById("bgcolor_select");
 				var boldHourSelect = document.getElementById("boldhour_select");
-	
+				var primaryColorSelect = document.getElementById("primarycolor_select");
+				var secondaryColorSelect = document.getElementById("secondarycolor_select");
+				var backgroundgColorSelect = document.getElementById("backgroundcolor_select");
+		
 				var options = {
-					"KEY_VIBRATEONBT": vibrateOnBtSelect.options[vibrateOnBtSelect.selectedIndex].value,
-					"KEY_SHOWDATE": showDateSelect.options[showDateSelect.selectedIndex].value,
-					"KEY_BGCOLOR": bgColorSelect.options[bgColorSelect.selectedIndex].value,
-					"KEY_BOLDHOUR": boldHourSelect.options[boldHourSelect.selectedIndex].value
+					"KEY_VIBRATEONBT": vibrateOnBtSelect.checked,
+					"KEY_SHOWDATE": showDateSelect.checked,
+					"KEY_BOLDHOUR": boldHourSelect.checked,
+					"KEY_PRIMARYCOLOR": primaryColorSelect.value,
+					"KEY_SECONDARYCOLOR": secondaryColorSelect.value,
+					"KEY_BACKGROUNDCOLOR": backgroundgColorSelect.value
 				}
 	
 				return options;
@@ -111,21 +117,9 @@
 				function() {
 					console.log("Submit");
 	
-					var options = saveOptions();
+					var options = saveOptions();					
 					var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(options));
-	          
-					document.location = location;
-				},
-				false
-			);
-	
-			var cancelButton = document.getElementById("cancel_button");
-			cancelButton.addEventListener("click",
-				function() {
-					console.log("Cancel");
-	
-					var location = "pebblejs://close";
-	
+			  
 					document.location = location;
 				},
 				false
