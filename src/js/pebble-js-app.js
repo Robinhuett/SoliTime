@@ -28,14 +28,14 @@ Pebble.addEventListener("ready", function(e) {
 Pebble.addEventListener("showConfiguration", function(e) {
 	console.log("PblKit_called --- showConfiguration");
 	var localoptions = JSON.parse(localStorage.getItem("localOptions"));
-	console.log('http://robinhuett.github.io/SoliTime/test/config.html' + '?' +
+	console.log('http://robinhuett.github.io/SoliTime/config.html' + '?' +
 				'vibrateonbt_select=' + localoptions.KEY_VIBRATEONBT + '&' + 
 				'showdate_select=' + localoptions.KEY_SHOWDATE + '&' + 
 				'boldhour_select=' + localoptions.KEY_BOLDHOUR + '&' + 
 				'primarycolor_select=' + localoptions.KEY_PRIMARYCOLOR + '&' + 
 				'secondarycolor_select=' + localoptions.KEY_SECONDARYCOLOR + '&' + 
 				'backgroundcolor_select=' + localoptions.KEY_BACKGROUNDCOLOR);
-	Pebble.openURL('http://robinhuett.github.io/SoliTime/test/config.html' + '?' +
+	Pebble.openURL('http://robinhuett.github.io/SoliTime/config.html' + '?' +
 				'vibrateonbt_select=' + localoptions.KEY_VIBRATEONBT + '&' + 
 				'showdate_select=' + localoptions.KEY_SHOWDATE + '&' + 
 				'boldhour_select=' + localoptions.KEY_BOLDHOUR + '&' + 
