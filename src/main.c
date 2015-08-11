@@ -376,47 +376,32 @@ static void inbox_received_handler(DictionaryIterator *iterator, void *context) 
 		switch (t->key) {
 			case KEY_VIBRATEONBT:
 				if (strcmp(t->value->cstring, "true") == 0) {
-					APP_LOG(APP_LOG_LEVEL_DEBUG, "KEY_VIBRATEONBT = true");
-					
 					persist_write_bool(KEY_VIBRATEONBT, true);
 				} else if (strcmp(t->value->cstring, "false") == 0) {
-					APP_LOG(APP_LOG_LEVEL_DEBUG, "KEY_VIBRATEONBT = false");
-					
 					persist_write_bool(KEY_VIBRATEONBT, false);
 				}
 				break;
 			case KEY_SHOWDATE:
 				if (strcmp(t->value->cstring, "true") == 0) {
-					APP_LOG(APP_LOG_LEVEL_DEBUG, "KEY_SHOWDATE = true");
-					
 					persist_write_bool(KEY_SHOWDATE, true);
 				} else if (strcmp(t->value->cstring, "false") == 0) {
-					APP_LOG(APP_LOG_LEVEL_DEBUG, "KEY_SHOWDATE = false");
-					
 					persist_write_bool(KEY_SHOWDATE, false);
 				}
 				break;
 			case KEY_BOLDHOUR:
 				if (strcmp(t->value->cstring, "true") == 0) {
-					APP_LOG(APP_LOG_LEVEL_DEBUG, "KEY_BOLDHOUR = true");
-					
 					persist_write_bool(KEY_BOLDHOUR, true);
 				} else if (strcmp(t->value->cstring, "false") == 0) {
-					APP_LOG(APP_LOG_LEVEL_DEBUG, "KEY_BOLDHOUR = false");
-					
 					persist_write_bool(KEY_BOLDHOUR, false);
 				}
 				break;
 			case KEY_PRIMARYCOLOR:
-				APP_LOG(APP_LOG_LEVEL_DEBUG, "KEY_PRIMARYCOLOR = %d", t->value->int8);
 				persist_write_int(KEY_PRIMARYCOLOR, t->value->int32);
 				break;
 			case KEY_SECONDARYCOLOR:
-				APP_LOG(APP_LOG_LEVEL_DEBUG, "KEY_SECONDARYCOLOR = %d", t->value->int8);
 				persist_write_int(KEY_SECONDARYCOLOR, t->value->int32);
 				break;
 			case KEY_BACKGROUNDCOLOR:
-				APP_LOG(APP_LOG_LEVEL_DEBUG, "KEY_BACKGROUNDCOLOR = %d", t->value->int8);
 				persist_write_int(KEY_BACKGROUNDCOLOR, t->value->int32);
 				break;
 		}

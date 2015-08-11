@@ -34,6 +34,12 @@
                 "type": "font"
             },
             {
+                "characterRegex": "[0-9a-zA-Z!?: ]",
+                "file": "fonts/Roboto-Regular.ttf",
+                "name": "FONT_ROBOTO_REGULAR_20",
+                "type": "font"
+            },
+            {
                 "file": "images/preview.png",
                 "menuIcon": true,
                 "name": "IMAGE_MENU_ICON",
