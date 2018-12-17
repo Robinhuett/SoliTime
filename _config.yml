@@ -1,0 +1,8 @@
+title: Solitime
+description: Watchface for Pebble and Pebble Time based on an image from Googles presentation of project Soli.
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-hacker
+
+gems:
+  - jekyll-mentions
